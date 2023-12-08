@@ -1,0 +1,67 @@
+Spring Boot Project - HOOK-FISH
+
+Tech Stack:
+======================
+Spring Boot: Framework for building Java-based applications.
+MySQL: Relational database for storing data.
+
+Database Configuration:
+===========================
+1) install MYSQL Workbench
+2) Create new schema
+3) create new database with name hookfish
+assuming username and password are root and root respectively
+
+Unzip the project :
+1) run in intelliji IDE or anyother editor
+2) now add queries in  MYSQL workbench queries like
+
+**************** Paste the below query scripts *********************
+
+=========== Insert  customer data==============
+
+INSERT INTO customer (customer_name, customer_phone_number, customer_email)
+VALUES
+('Narasimhulu', '1234567890', 'narasimhulu@gmail.com'),
+('Bompalli', '9876543210', 'bompalli@yahoo.com'),
+('Hareesh karanam', '5551234567', 'hareesh@example.com'),
+('Nishikanth', '9576543610', 'nishikanth@yahoo.com'),
+('kiran', '9879543210', 'kiran@yahoo.com');
+
+=======================Insert Product Catalogue data ============
+
+INSERT INTO product_catalogues (product_name, product_price)
+VALUES
+('Mac Laptop', 99999.99),
+('Smartphone', 499.99),
+('Headphones', 79.99);
+
+========================= Insert Orders data =====================
+
+INSERT INTO orders (customer_id, product_id, order_date) VALUES
+(1, 1, NOW()),
+(3, 2, NOW()),
+(5, 3, NOW());
+
+
+
+Now Go to Postman and hit the API with GET method
+GET: http://localhost:8080/api/customers/no-orders
+
+Now You can view the output as:
+----------------------------------------
+[
+    {
+        "id": 2,
+        "customerName": "Bompalli",
+        "customerPhoneNumber": "9876543210",
+        "customerEmail": "bompalli@yahoo.com"
+    },
+    {
+        "id": 4,
+        "customerName": "Nishikanth",
+        "customerPhoneNumber": "9576543610",
+        "customerEmail": "nishikanth@yahoo.com"
+    }
+]
+----------------------------------------------------
