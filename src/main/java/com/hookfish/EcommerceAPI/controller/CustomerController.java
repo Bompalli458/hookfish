@@ -20,9 +20,10 @@ public class CustomerController {
     }
 
     @GetMapping("/no-orders")
-    public ResponseEntity<List<Customer>> getCustomersWithNoOrders() {
+    public  ResponseEntity<?> getCustomersWithNoOrders() {
         List<Customer> customers = customerService.getCustomersWithNoOrders();
-        return ResponseEntity.ok(customers);
+        if(!customers.isEmpty())return ResponseEntity.ok(customers);
+        else return ResponseEntity.ok("All Customers Ordered At least One Product");
     }
 }
 
